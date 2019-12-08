@@ -1,5 +1,5 @@
 <template>
-  <v-app id="inspire">
+  <v-app app>
     <v-navigation-drawer
       v-model="drawerRight"
       app
@@ -12,35 +12,36 @@
             <v-icon>mdi-exit-to-app</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Open Temporary Drawer</v-list-item-title>
+            <v-list-item-title>Open Temporary Drawer right</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar
+    <!--<v-app-bar
       app
       clipped-right
       color="indigo"
       dark
     >
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
-      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-toolbar-title>{{ $t("app_name") }}</v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight" />
-    </v-app-bar>
+    </v-app-bar> -->
+    <Header/>
 
     <v-navigation-drawer
       v-model="drawer"
       app
-    >
+      >
       <v-list dense>
         <v-list-item @click.stop="left = !left">
           <v-list-item-action>
             <v-icon>mdi-exit-to-app</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>Open Temporary Drawer</v-list-item-title>
+            <v-list-item-title>Open Temporary Drawer left</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -54,9 +55,8 @@
 
     <v-content>
       <v-container
-        class="fill-height"
-        fluid
       >
+      <router-view :key="$route.fullPath"/>
       </v-container>
     </v-content>
 
@@ -67,26 +67,22 @@
       temporary
     />
 
-    <v-footer
-      app
-      color="indigo"
-      class="white--text"
-    >
-      <span>Vuetify</span>
-      <v-spacer />
-      <span>&copy; 2019</span>
-    </v-footer>
+    <Footer/>
   </v-app>
 </template>
 
 <script>
 //import HelloWorld from './components/HelloWorld';
+import Footer from './components/Footer'
+import Header from './components/Header'
 
 export default {
   name: 'App',
 
   components: {
     //HelloWorld,
+    Footer,
+    Header
   },
   props: {
       source: String,
