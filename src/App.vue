@@ -1,32 +1,101 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawerRight"
+      app
+      clipped
+      right
+    >
+      <v-list dense>
+        <v-list-item @click.stop="right = !right">
+          <v-list-item-action>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Open Temporary Drawer</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar
+      app
+      clipped-right
+      color="indigo"
+      dark
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title>Toolbar</v-toolbar-title>
+      <v-spacer />
+      <v-app-bar-nav-icon @click.stop="drawerRight = !drawerRight" />
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <v-list dense>
+        <v-list-item @click.stop="left = !left">
+          <v-list-item-action>
+            <v-icon>mdi-exit-to-app</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Open Temporary Drawer</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-navigation-drawer
+      v-model="left"
+      fixed
+      temporary
+    />
+
+    <v-content>
+      <v-container
+        class="fill-height"
+        fluid
+      >
+      </v-container>
+    </v-content>
+
+    <v-navigation-drawer
+      v-model="right"
+      fixed
+      right
+      temporary
+    />
+
+    <v-footer
+      app
+      color="indigo"
+      class="white--text"
+    >
+      <span>Vuetify</span>
+      <v-spacer />
+      <span>&copy; 2019</span>
+    </v-footer>
+  </v-app>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+//import HelloWorld from './components/HelloWorld';
 
-#nav {
-  padding: 30px;
-}
+export default {
+  name: 'App',
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+  components: {
+    //HelloWorld,
+  },
+  props: {
+      source: String,
+  },
+  data: () => ({
+    drawer: false,
+    drawerRight: false,
+    right: false,
+    left: false,
+  }),
+};
+</script>
