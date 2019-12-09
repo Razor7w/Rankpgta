@@ -5,37 +5,37 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    drawer: false,
+    drawerLeft: false,
     drawerRight: false,
-    right: false,
-    left: false,
+    subDrawerRight: false,
+    subDrawerLeft: false,
   },
   getters:{
-    drawer(state){
-      return state.drawer
+    drawerLeft(state){
+      return state.drawerLeft
     },
     drawerRight(state){
       return state.drawerRight
     },
-    right(state){
-      return state.right
+    subDrawerRight(state){
+      return state.subDrawerRight
     },
-    left(state){
-      return state.left
+    subDrawerLeft(state){
+      return state.subDrawerLeft
     },
   },
   mutations: {
-    changeDrawer(state){
-      state.drawer = !state.drawer
+    changeDrawerLeft(state){
+      state.drawerLeft = !state.drawerLeft
     },
     changeDrawerRight(state){
       state.drawerRight = !state.drawerRight
     },
-    changeRight(state){
-      state.right = !state.right
+    changeSubDrawerRight(state, payload){
+      state.subDrawerRight = payload
     },
-    changeLeft(state){
-      state.left = !state.left
+    changeSubDrawerLeft(state, payload){
+      state.subDrawerLeft = payload
     }
   },
   actions: {

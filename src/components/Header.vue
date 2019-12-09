@@ -5,7 +5,7 @@
       color="indigo"
       dark
     >
-      <v-app-bar-nav-icon @click.stop="changeDrawer" />
+      <v-app-bar-nav-icon @click.stop="changeDrawerLeft" />
       <v-toolbar-title>{{ $t("app_name") }}</v-toolbar-title>
       <v-spacer />
       <v-app-bar-nav-icon @click.stop="changeDrawerRight" />
@@ -15,8 +15,8 @@
 <script>
     import { mapMutations } from 'vuex'
     export default {
-        methods:{
-            ...mapMutations(['changeDrawer', 'changeDrawerRight'])
-        }
+      methods:{
+        ...mapMutations(['changeDrawerLeft', 'changeDrawerRight'])
+      }
     }
 </script>
