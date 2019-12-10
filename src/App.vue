@@ -6,6 +6,14 @@
     <SubDrawerLeft/>
     <!-- Content -->
     <v-content>
+      <v-tabs
+        centered
+      >
+        <v-tab>Inicio</v-tab>
+        <v-tab>Calendario</v-tab>
+        <v-tab>Posts</v-tab>
+        <v-tab>Players</v-tab>
+      </v-tabs>
       <v-container>
         <router-view :key="$route.fullPath"/>
       </v-container>
