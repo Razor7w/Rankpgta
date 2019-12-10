@@ -25,11 +25,19 @@ export default new Vuex.Store({
     },
   },
   mutations: {
-    changeDrawerLeft(state){
-      state.drawerLeft = !state.drawerLeft
+    changeDrawerLeft(state, payload){
+      if(payload === true || payload === false){
+        state.drawerLeft = payload
+      }else{
+        state.drawerLeft = !state.drawerLeft
+      }
     },
-    changeDrawerRight(state){
-      state.drawerRight = !state.drawerRight
+    changeDrawerRight(state, payload){
+      if(payload === true || payload === false){
+        state.drawerRight = payload
+      }else{
+        state.drawerRight = !state.drawerRight
+      }
     },
     changeSubDrawerRight(state, payload){
       state.subDrawerRight = payload
