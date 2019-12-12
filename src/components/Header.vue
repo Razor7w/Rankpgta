@@ -18,8 +18,13 @@
 <script>
     import { mapMutations } from 'vuex'
     export default {
-      methods:{
-        ...mapMutations(['changeDrawerLeft', 'changeDrawerRight'])
+      data () {
+      return {
+      
       }
+    },
+    methods:{
+      ...mapMutations(['changeDrawerLeft', 'changeDrawerRight'])
+    }
     }
 </script>
