@@ -9,7 +9,8 @@
       <v-tabs
         centered
       >
-        <v-tab>Inicio</v-tab>
+        <v-tab :to="`/${$i18n.locale}/`">Inicio</v-tab>
+        <v-tab>Rankings</v-tab>
         <v-tab>Calendario</v-tab>
         <v-tab>Posts</v-tab>
         <v-tab>Players</v-tab>
