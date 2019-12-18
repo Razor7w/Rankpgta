@@ -39,7 +39,7 @@
         this.$i18n.locale = lang
         this.$router.push({
           params: {lang: lang}
-        })
+        }).catch(err => {})
       }
     }
   }
