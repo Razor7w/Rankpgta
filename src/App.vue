@@ -10,10 +10,10 @@
         centered
       >
         <v-tab :to="`/${$i18n.locale}/`">Inicio</v-tab>
-        <v-tab>Rankings</v-tab>
-        <v-tab>Calendario</v-tab>
-        <v-tab>Posts</v-tab>
-        <v-tab>Players</v-tab>
+        <v-tab :to="`/${$i18n.locale}/rankings`">Rankings</v-tab>
+        <v-tab :to="`/${$i18n.locale}/calendario`">Calendario</v-tab>
+        <v-tab :to="`/${$i18n.locale}/publicaciones`">Publicaciones</v-tab>
+        <v-tab :to="`/${$i18n.locale}/jugadores`">Jugadores</v-tab>
       </v-tabs>
       <v-container>
         <router-view :key="$route.fullPath"/>

@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
 import i18n from '../i18n'
 
 Vue.use(VueRouter)
@@ -19,7 +18,7 @@ const routes = [
       {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import(/* webpackChunkName: "about" */ '../views/Home.vue')
       },
       {
         path: 'about',
@@ -28,6 +27,26 @@ const routes = [
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+      },
+      {
+        path: 'rankings',
+        name: 'rankings',
+        component: () => import(/* webpackChunkName: "rankings" */ '../views/Rankings.vue')
+      },
+      {
+        path: 'calendario',
+        name: 'calendario',
+        component: () => import(/* webpackChunkName: "calendario" */ '../views/Calendario.vue')
+      },
+      {
+        path: 'publicaciones',
+        name: 'publicaciones',
+        component: () => import(/* webpackChunkName: "publicaciones" */ '../views/Publicaciones.vue')
+      },
+      {
+        path: 'jugadores',
+        name: 'jugadores',
+        component: () => import(/* webpackChunkName: "jugadores" */ '../views/Jugadores.vue')
       }
     ]
   }
