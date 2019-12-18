@@ -7,7 +7,48 @@
       <span class="overline mr-2">by</span>
       <span class="font-italic font-weight-bold">Razor7w</span>
       <v-spacer />
+      <v-avatar>
+        <img
+          src="@/assets/eeuu.svg"
+          alt="Chile"
+          class="mr-2"
+          @click="changeLanguage('en')"
+        >
+      </v-avatar>
+      <v-avatar>
+        <img
+          @click="changeLanguage('es')"
+          src="@/assets/chile.svg"
+          alt="Chile"
+          class="mr-2"
+        >
+      </v-avatar>
       <span class="mr-2">V Región</span>
       <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
 </template>
+
+<script>
+  export default {
+    data () {
+      return {
+      }
+    },
+    methods:{
+      changeLanguage(lang){
+        this.$i18n.locale = lang
+        this.$router.push({
+          params: {lang: lang}
+        })
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .v-avatar {
+    height: 25px !important;
+    min-width: 30px !important;
+    width: 25px !important;
+  }
+</style>

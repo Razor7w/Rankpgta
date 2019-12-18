@@ -127,7 +127,7 @@
         { icon: 'mdi-post', text: 'Posts' },
         { icon: 'mdi-account', text: 'Players' },
         { icon: 'mdi-help-circle', text: 'Ayuda' },
-        {
+        /*{
           icon: 'mdi-chevron-up',
           'icon-alt': 'mdi-chevron-down',
           text: 'Lenguaje',
@@ -136,7 +136,7 @@
             { text: 'Español', lang: 'es' },
             { text: 'Ingles' , lang: 'en'},
           ],
-        },
+        },*/
       ],
       }
     },
