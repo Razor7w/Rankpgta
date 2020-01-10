@@ -5,7 +5,8 @@
       class="white--text"
     >
       <span class="overline mr-2">by</span>
-      <span class="font-italic font-weight-bold">Razor7w</span>
+      <span class="font-italic font-weight-bold mr-2">Razor7w</span>
+      <span class="font-italic font-weight-light overline">1.0.0</span>
       <v-spacer />
       <v-avatar>
         <img
