@@ -1,12 +1,12 @@
 <template>
   <v-app app>
-    <DrawerRight/>
+    <DrawerRight v-if="isAuthenticated"/>
     <Header/>
     <DrawerLeft/>
-    <SubDrawerLeft/>
+    <!-- <SubDrawerLeft/> -->
     <!-- Content -->
     <v-content>
-      <v-tabs
+      <v-tabs v-if=" !($route.name === 'ingreso')"
         centered
       >
         <v-tab :to="`/${$i18n.locale}/`">Inicio</v-tab>
@@ -16,7 +16,7 @@
         <v-tab :to="`/${$i18n.locale}/jugadores`">Jugadores</v-tab>
       </v-tabs>
       <v-container>
-        <router-view :key="$route.fullPath"/>
+        <router-view/>
       </v-container>
     </v-content>
     <!-- /Content -->
@@ -32,6 +32,7 @@ import DrawerRight from './components/DrawerRight'
 import DrawerLeft from './components/DrawerLeft'
 import SubDrawerLeft from './components/SubDrawerLeft'
 import SubDrawerRight from './components/SubDrawerRight'
+import { mapState } from 'vuex'
 
 export default {
   name: 'App',
@@ -46,5 +47,8 @@ export default {
   },
   data: () => ({
   }),
+  computed: {
+        ...mapState(['isAuthenticated'])
+  },
 };
 </script>

@@ -73,7 +73,6 @@
               v-for="(child, i) in item.children"
               :key="i"
               link
-              @click="changeLanguage(child.lang)"
             >
               <v-list-item-action v-if="child.icon">
                 <v-icon>{{ child.icon }}</v-icon>
@@ -107,7 +106,7 @@
 </template>
 
 <script>
-    import { mapMutations, mapGetters } from 'vuex'
+    import { mapMutations, mapState } from 'vuex'
     export default {
       data () {
       return {
@@ -141,7 +140,7 @@
       }
     },
         computed:{
-            ...mapGetters(['drawerLeft']),
+            ...mapState(['drawerLeft']),
             drawer:{
                 get(){
                   return this.drawerLeft
@@ -154,12 +153,6 @@
         },
         methods:{
             ...mapMutations(['changeSubDrawerLeft',  'changeDrawerLeft']),
-            changeLanguage(lang){
-              this.$i18n.locale = lang
-              this.$router.push({
-                params: {lang: lang}
-              })
-            }
         }
     }
 </script>

@@ -8,10 +8,10 @@
 </template>
 
 <script>
-    import { mapGetters, mapMutations } from 'vuex'
+    import { mapState, mapMutations } from 'vuex'
     export default {
         computed:{
-            ...mapGetters(['subDrawerRight']),
+            ...mapState(['subDrawerRight']),
             drawer:{
                 get(){
                     return this.subDrawerRight
