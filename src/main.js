@@ -7,6 +7,19 @@ import i18n from './i18n'
 
 Vue.config.productionTip = false
 
+import { auth } from "@/firebase";
+
+//Solucion temporal al error del calendario de vuetify
+const ignoreWarnMessage = 'The .native modifier for v-on is only valid on components but it was used on <div>.';
+Vue.config.warnHandler = function (msg, vm, trace) {
+  // `trace` is the component hierarchy trace
+  if (msg === ignoreWarnMessage) {
+    msg = null;
+    vm = null;
+    trace = null;
+  }
+}
+
 //use beforeEach route guard to set the lenguage
 router.beforeEach((to, from, next) => {
 
@@ -20,6 +33,12 @@ router.beforeEach((to, from, next) => {
   i18n.locale = language
   next()
 })
+
+auth.onAuthStateChanged(function(user) {
+  if(user){
+    store.dispatch('setUsuario', user)
+  }
+});
 
 new Vue({
   router,
